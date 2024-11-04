@@ -15,7 +15,7 @@ import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 
 const SwiperArea = ()=>{
     return(
-        <div className="py-20">
+        <div className="py-10">
           
           <section>
             <SectionTitle
