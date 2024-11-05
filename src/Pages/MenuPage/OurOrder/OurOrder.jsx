@@ -1,34 +1,40 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+// import OrderCard from "./OrderCard";
 import MenuItemCard from "../../Shared/MenuItemCard/MenuItemCard";
 
-const FormOurMenu = () => {
-    const [menu, setMenu] = useState([]);
+const OurOrder = ()=>{
+    const [menu, setMenu] = useState([])
     const [showAll, setShowAll] = useState(false);
 
-    useEffect(() => {
+    useEffect(()=>{
         fetch("menu.json")
-            .then(res => res.json())
-            .then(data => {
-                setMenu(data);   
-            });
-    }, []);
+        .then(res=> res.json())
+        .then(data=> {
+            setMenu(data)
+        })
+    },[])
+    const soupMenu = menu.filter(item => item.category === "soup");
+    const displayedMenu = showAll ? menu : soupMenu;
 
-    const popularMenu = menu.filter(item => item.category === "popular");
-    const displayedMenu = showAll ? menu : popularMenu;
+    // const soupArea = orders.filter(order=> order.category === "soup")
 
-    return (
+    
+
+    return(
         <div className="py-10">
             <section>
                 <SectionTitle
-                    subHeading={"popular menu"}
-                    heading={"From Our Menu"}
-                />
+                subHeading={"Soup"} 
+                heading={"Todays Order"}>
+
+                </SectionTitle>
             </section>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                {displayedMenu.map(item => (
-                    <MenuItemCard key={item._id} item={item} />
-                ))}
+                    {
+                        displayedMenu.map(item=> <MenuItemCard key={item._key} item={item}>
+                        </MenuItemCard>)
+                    }
             </div>
             <div className="text-center mt-8">
                 <button
@@ -39,7 +45,6 @@ const FormOurMenu = () => {
                 </button>
             </div>
         </div>
-    );
-};
-
-export default FormOurMenu;
+    )
+}
+export default OurOrder;

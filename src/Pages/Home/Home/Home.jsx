@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import CallUs from "../CallUs/CallUs";
 import CardMenu from "../CardMenu/CardMenu";
 import CarouselArea from "../CarouselArea/CarouselArea";
@@ -11,6 +12,10 @@ import Testimonial from "../Testimonial/Testimonial";
 const Home = ()=>{
     return(
         <div>
+            <Helmet className="my-40">
+                <title>Home Page</title>
+                
+            </Helmet>
             <CarouselArea></CarouselArea>
             <SwiperArea></SwiperArea>
             <ChefArea></ChefArea>
