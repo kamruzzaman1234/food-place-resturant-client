@@ -7,6 +7,7 @@ import  img3 from '../../assets/menu/pizza-bg.jpg'
 import img4 from '../../assets/menu/dessert-bg.jpeg'
 import FormOurMenu from '../Home/FormOurMenu/FormOurMenu';
 import Pizza from './OurOrder/Pizza';
+import Salad from './OurOrder/Salad';
 const MenuPage = ()=>{
     return(
         <div>
@@ -21,6 +22,7 @@ const MenuPage = ()=>{
             <Banner img={img2} title="Pizza"></Banner>
             <Pizza></Pizza>
             <Banner img={img2} title="Soup"></Banner>
+            <Salad></Salad>
 
         </div> 
     
