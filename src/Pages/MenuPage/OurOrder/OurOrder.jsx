@@ -8,7 +8,7 @@ const OurOrder = ()=>{
     const [showAll, setShowAll] = useState(false);
 
     useEffect(()=>{
-        fetch("menu.json")
+        fetch("http://localhost:6009/menu")
         .then(res=> res.json())
         .then(data=> {
             setMenu(data)

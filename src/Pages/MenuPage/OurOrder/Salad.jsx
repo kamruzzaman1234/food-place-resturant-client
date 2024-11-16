@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle"
 import MenuItemCard from "../../Shared/MenuItemCard/MenuItemCard";
+import { Link } from "react-router-dom";
 
 const Salad = ()=>{
     const [menu, setMenu] = useState([])
     const [showAll, setShowAll] = useState(false);
 
     useEffect(()=>{
-        fetch("menu.json")
+        fetch("http://localhost:6009/menu")
         .then(res=> res.json())
         .then(data=>{
             setMenu(data)
@@ -27,12 +28,12 @@ const Salad = ()=>{
                 }
             </div>
             <div className="text-center mt-8">
-                <button
+                <Link to=""
                     className="border-b-2  text-black border-black px-6 py-2 rounded-[20px]"
                     onClick={() => setShowAll(!showAll)}
                 >
                     {showAll ? "View Less" : "View All"}
-                </button>
+                </Link>
             </div>
         </div>
     )
